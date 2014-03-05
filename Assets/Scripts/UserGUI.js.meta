@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 65ce8660b7eb2174d83482558d14ba90
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - environment: {fileID: 100000, guid: 915d832868bc8bd46af377cbb8d1cd7c, type: 2}
+  - environment_icon: {instanceID: 0}
+  - character: {fileID: 100000, guid: 4bb9a2429a88f324f8eab952af18e2bb, type: 2}
+  - thing: {fileID: 100000, guid: fc7e6d4bedb04954e92f63b41867dbc3, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
