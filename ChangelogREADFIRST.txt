@@ -1,0 +1,9 @@
+Changelog:
+-Edit menu for entities appear when double-clicked
+-Temporary GUI for switching scenes. Pwede kahit yun nalang gamitin natin?
+
+To do next (Emman):
+-Allow objects to be draggable
+-Scripting GUI
+
+Palagay dito ang gagawin mo rin, thanks!
