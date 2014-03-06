@@ -28,10 +28,10 @@ function OnGUI () {
 	if(openWindow){
 		rosterWindow = GUI.Window(0,rosterWindow,AddEntity,"Adding an Entity");
 	}
-	if(ThingScript.openThingWindow){
+	if(thing.GetComponent(ThingScript).openThingWindow){
 		thingWindow = GUI.Window(1,thingWindow,EditThing,"Editing Thing");
 	}
-	if(CharacterScript.openCharacterWindow){
+	if(character.GetComponent(CharacterScript).openCharacterWindow){
 		characterWindow = GUI.Window(2,characterWindow,EditCharacter,"Editing Character");
 	}
 	//GUI.Box(Rect(Screen.width/6, Screen.height*5/6-10,Screen.width*3/5,Screen.height/6-10),"");
@@ -74,7 +74,7 @@ function AddEntity(windowID: int){
 			Instantiate(character,Vector3(x,y+1,z),Quaternion.identity);
 			openWindow = false;
 		}
-		if (GUI.Button (Rect (10,60,150,30), "Create Object")){
+		if (GUI.Button (Rect (10,60,150,30), "Create Thing")){
 			Instantiate(thing,Vector3(x,y+1,z),Quaternion.identity);
 			openWindow = false;
 		}
@@ -88,7 +88,7 @@ function AddEntity(windowID: int){
 function EditCharacter(windowID: int){
 
 	if (GUI.Button (Rect (rosterWindow.width-80,rosterWindow.height-40,70,30),"Cancel")){
-			CharacterScript.openCharacterWindow = false;
+			character.GetComponent(CharacterScript).openCharacterWindow = false;
 		}
 		// Make the windows be draggable.
 		GUI.DragWindow (Rect (0,0,10000,10000));
@@ -99,7 +99,7 @@ function EditThing(windowID: int){
 
 
 	if (GUI.Button (Rect (rosterWindow.width-80,rosterWindow.height-40,70,30),"Cancel")){
-			ThingScript.openThingWindow = false;
+			thing.GetComponent(ThingScript).openThingWindow = false;
 		}
 		// Make the windows be draggable.
 		GUI.DragWindow (Rect (0,0,10000,10000));
