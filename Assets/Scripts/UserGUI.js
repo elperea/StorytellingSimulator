@@ -8,6 +8,8 @@ var rosterWindow: Rect = Rect(10,10,300,300);
 var thingWindow: Rect = Rect(10,10,300,300);
 var characterWindow: Rect = Rect(10,10,300,300);
 var openWindow : boolean = false;
+var editWindow : boolean = false;
+
 static var x=0;
 static var y=0;
 static var z=0;
@@ -20,9 +22,14 @@ static var cam_z=-10;
 static var scene_count = 0;
 static var curr_scene = 0;
 
+static var top_margin = 30;
+static var obj_count = 0;
+
+static var obj_array = new Array();
 function OnGUI () {
+	
 	//GUI.Box(Rect(Screen.width*4/5-10, 10,Screen.width/5,Screen.height-50),"Roster");
-	if(GUI.Button(Rect(Screen.width*4/5,30,Screen.width/6,30),"+")){
+	if(GUI.Button(Rect(Screen.width*4/5,top_margin,Screen.width/6,30),"+")){
 		openWindow = true;
 	}
 	if(openWindow){
@@ -35,6 +42,19 @@ function OnGUI () {
 		characterWindow = GUI.Window(2,characterWindow,EditCharacter,"Editing Character");
 	}
 	//GUI.Box(Rect(Screen.width/6, Screen.height*5/6-10,Screen.width*3/5,Screen.height/6-10),"");
+	
+	var top = 30;
+	//for(var i=0, top = 30; i<obj_count; i++, top+=30) {
+	 for(var i : int = 0; i < obj_count; i++){
+	 	if(GUI.Button(Rect(Screen.width*4/5,top,Screen.width/6,30), "sdf")) {
+	 		editWindow = true;
+	 	}
+	 	top = top + 40;
+	}
+	
+	if(editWindow){
+		rosterWindow = GUI.Window(1,thingWindow,EditThing,"Editing Thing");
+	} 
 	if(curr_scene>1){
 		if(GUI.Button(Rect(Screen.width/6+100,Screen.height*5/6,50,Screen.height/6-30),"<<")){
 			cam_z += -25;
@@ -70,12 +90,19 @@ function OnGUI () {
 }
 
 function AddEntity(windowID: int){
+
+		//top_margin = top_margin + 40;
 		if (GUI.Button (Rect (10,20,150,30), "Create Character")){
 			Instantiate(character,Vector3(x,y+1,z),Quaternion.identity);
+			//obj_array[obj_count] = "dafaak";
+			obj_count++;
+			top_margin = top_margin + 40;
 			openWindow = false;
 		}
 		if (GUI.Button (Rect (10,60,150,30), "Create Thing")){
 			Instantiate(thing,Vector3(x,y+1,z),Quaternion.identity);
+			obj_count++;
+			top_margin = top_margin + 40;
 			openWindow = false;
 		}
 		if (GUI.Button (Rect (rosterWindow.width-80,rosterWindow.height-40,70,30),"Cancel")){
@@ -100,6 +127,7 @@ function EditThing(windowID: int){
 
 	if (GUI.Button (Rect (rosterWindow.width-80,rosterWindow.height-40,70,30),"Cancel")){
 			thing.GetComponent(ThingScript).openThingWindow = false;
+			editWindow = false;
 		}
 		// Make the windows be draggable.
 		GUI.DragWindow (Rect (0,0,10000,10000));
