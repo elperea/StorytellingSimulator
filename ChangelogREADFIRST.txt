@@ -6,4 +6,9 @@ To do next (Emman):
 -Allow objects to be draggable
 -Scripting GUI
 
+
+Nasa description ng commit yung mga changes na nagawa..
+To do next (Rox)
+-Connect yung object mismo at yung icon sa roster
+
 Palagay dito ang gagawin mo rin, thanks!
