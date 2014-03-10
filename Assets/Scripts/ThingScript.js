@@ -1,7 +1,7 @@
 ﻿#pragma strict
 
 public var openThingWindow : boolean = false;
-public var myName: String="foo";
+public var myName: String="thing";
 private var no_click : boolean = false;
 private var first_click: float;
 private var second_click: float;

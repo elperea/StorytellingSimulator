@@ -16,5 +16,5 @@ function OnMouseExit () {
 }
 
 function OnMouseDown () {
-	Application.LoadLevel("SceneCreation");
+	Application.LoadLevel("Storyteller");
 }

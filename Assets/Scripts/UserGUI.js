@@ -46,9 +46,27 @@ function OnGUI () {
 	var top = 30;
 	//for(var i=0, top = 30; i<obj_count; i++, top+=30) {
 	 for(var i : int = 0; i < obj_count; i++){
-	 	if(GUI.Button(Rect(Screen.width*4/5,top,Screen.width/6,30), "sdf")) {
-	 		editWindow = true;
+	 	//check if obj is character or not..
+	 	var object : GameObject;
+	 	object = obj_array[i];
+	 	var te = object.transform.gameObject.name;
+	 	//newAddedGO.name == string.Format("{0}(Clone)", myNeedPrefab.name
+	 	
+	 	
+	 	//Debug.Log(te);
+	 	//Debug.Log("(Clone)Thing");
+	 	
+	 	if (te == "Thing(Clone)") {
+	 		if(GUI.Button(Rect(Screen.width*4/5,top,Screen.width/6,30), thing.GetComponent(ThingScript).myName)) {
+		 		editWindow = true;
+		 	}
+	 	} else {
+		 	if(GUI.Button(Rect(Screen.width*4/5,top,Screen.width/6,30), character.GetComponent(CharacterScript).myName)) {
+		 		editWindow = true;
+		 	}
 	 	}
+	 	
+	 	
 	 	top = top + 40;
 	}
 	
@@ -93,14 +111,17 @@ function AddEntity(windowID: int){
 
 		//top_margin = top_margin + 40;
 		if (GUI.Button (Rect (10,20,150,30), "Create Character")){
-			Instantiate(character,Vector3(x,y+1,z),Quaternion.identity);
-			//obj_array[obj_count] = "dafaak";
+			var tempchar : GameObject;
+			tempchar = Instantiate(character,Vector3(x,y+1,z),Quaternion.identity);
+			obj_array.Push(tempchar);
 			obj_count++;
 			top_margin = top_margin + 40;
 			openWindow = false;
 		}
 		if (GUI.Button (Rect (10,60,150,30), "Create Thing")){
-			Instantiate(thing,Vector3(x,y+1,z),Quaternion.identity);
+			var tempchar2 : GameObject;
+			tempchar2 = Instantiate(thing,Vector3(x,y+1,z),Quaternion.identity);
+			obj_array.Push(tempchar2);
 			obj_count++;
 			top_margin = top_margin + 40;
 			openWindow = false;
