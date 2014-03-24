@@ -3,12 +3,33 @@ Changelog:
 -Temporary GUI for switching scenes. Pwede kahit yun nalang gamitin natin?
 
 To do next (Emman):
--Allow objects to be draggable
--Scripting GUI
+-Allow objects to be draggable - 0%
+-Scripting GUI - 50% done paantay til tuesday
+	ganto yan: every time na na-dodouble click ang isang character, part na sya ng sequence na yun. enter a valid command,
+	then OK para maassign na sya ng sequence. cancel para walang mailagay na sequence. pwede rin iwang blank ang action
+	textfield kung gusto mong baguhin lang ang pangalan. here are the only valid commands:
+	walk [north,south,east,west] [1-10]
+	talk [textbox] 
+	ayun. ok na ang talk, walk nalang haha. 
+	sunod kong gagawin ay i-didisable ko ang GUI pag naka-play mode, paantay lang ulit haha
+	dynamic pala ang camera; lilipat sya agad sa scene na may laman ang isang character kaya no need na for a command
+	para sa screen transitions
+	try mo yung scripting haha. gamitin mo lang yung talk na command; bukas ko itutuloy yung walk. then polishing at texture
+	imports nalang.
+-import models - 0%
 
 
 Nasa description ng commit yung mga changes na nagawa..
 To do next (Rox)
 -Connect yung object mismo at yung icon sa roster
 
+ni-comment out ko pala muna yung roster list mo haha sorry. tanggalin mo nalang yung comments para dun
+bale suggest ko pala na yung add entity button, nasa taas lang. tsaka palagay ng scroll bar kung sakaling
+sumobra sa screen yung roster. tsaka ayun madali nang mag-attach ng image sa prefab. pagawa yung texture ng 
+roster list buttons sa icon ng mga prefabs. May sphere at cube jpeg ako sa prefab folder, attach mo lang yun
+sa prefabs.
+
+shit. di talaga ako marunong gumamit ng github. napaltan yung dating files ang bago kong inedit na files nung nag-push
+ako. sorry talaga yun ang dahilan kung bakit nagtagal pa ako rito. anyway, eto na, tinanggal ko muna yung script GUI sa
+edit character window.
 Palagay dito ang gagawin mo rin, thanks!
