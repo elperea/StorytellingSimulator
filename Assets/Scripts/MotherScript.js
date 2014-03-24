@@ -101,6 +101,7 @@ function ShowFriendlyScript(windowID: int){
 	if (GUI.Button (Rect (scriptWindow.width-80,scriptWindow.height-40,70,30),"Cancel")){
 			openScriptWindow = false;
 	}
+	GUI.DragWindow (Rect (0,0,10000,10000));
 }
 
 
