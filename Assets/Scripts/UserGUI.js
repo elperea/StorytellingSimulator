@@ -92,6 +92,7 @@ function OnGUI () {
 			curr_environment.GetComponent(EnviScript).enabled = true;
 			disp_det = curr_environment.GetComponent(EnviScript).place;
 			Debug.Log("We are at "+disp_det);
+			Debug.Log("Current Scene is "+curr_scene);
 		}
 	}
 	if(curr_scene<scene_count){
@@ -110,6 +111,7 @@ function OnGUI () {
 			curr_environment.GetComponent(EnviScript).enabled = true;
 			disp_det = curr_environment.GetComponent(EnviScript).place;
 			Debug.Log("We are at "+disp_det);
+			Debug.Log("Current Scene is "+curr_scene);
 		}
 	}
 	if(GUI.Button(Rect(Screen.width/6+10,Screen.height*5/6,50,Screen.height/6-30),"+")){
@@ -135,6 +137,7 @@ function OnGUI () {
 			curr_environment.GetComponent(EnviScript).freshly_baked = true;
 			disp_det = curr_environment.GetComponent(EnviScript).place;
 			Debug.Log("We are at "+disp_det);
+			Debug.Log("Current Scene is "+curr_scene);
 	}
 	GUI.Label(Rect(20,20,150,30),disp_det);
 }
@@ -146,7 +149,7 @@ function AddEntity(windowID: int){
 			var tempchar : GameObject;
 			tempchar = Instantiate(character,Vector3(x,y+1,z),Quaternion.identity);
 			tempchar.GetComponent(CharacterScript).characterID = char_count;
-			tempchar.name = "char"+char_count;
+			tempchar.name = ""+ curr_scene + ":char"+char_count;
 			char_count++;
 			//obj_array.Push(tempchar);
 			//obj_count++;
@@ -158,7 +161,7 @@ function AddEntity(windowID: int){
 			var tempthing : GameObject;
 			tempthing = Instantiate(thing,Vector3(x,y+1,z),Quaternion.identity);
 			tempthing.GetComponent(ThingScript).thingID = thing_count;
-			tempthing.name = "thing"+thing_count;
+			tempthing.name = ""+ curr_scene + ":thing"+thing_count;
 			thing_count++;
 			//obj_array.Push(tempthing);
 			//obj_count++;
